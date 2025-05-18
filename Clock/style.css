@@ -1,0 +1,155 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    background-color: black;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.container{
+    position: relative;
+}
+.clock{
+    background-color: rgba(240, 248, 255, 0.109);
+    height: 600px;
+    width: 600px;
+    border: 1px solid;
+    border-radius: 50%;
+    box-shadow: 10px 0px 30px rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.clock span{
+    position: absolute;
+    transform: rotate(calc(30deg * var(--i)));
+    inset: 12px;
+    text-align: center;
+}
+.clock span b{
+     transform: rotate(calc(-30deg * var(--i)));
+     display: inline-block;
+     font-size: 20px;
+}
+.clock::before{
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+.hand{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.hand i{
+    position: absolute;
+    width: var(--w);
+    height: var(--h);
+    border-radius: 10px;
+    background-color: var(--clr);
+}
+/* Default values for large screens (desktop) */
+#hour {
+    --clr: #76a2ee;
+    --h: 140px;
+    --h2: 50px; 
+    --h3: 90px;
+    --h4: 110px;
+
+}
+#min {
+    --clr: #da470d;
+    --h: 180px;
+    --h2: 75px; 
+    --h3: 120px; 
+    --h4: 150px; 
+}
+#sec {
+    --clr: #ffffff;
+    --h: 220px;
+    --h2: 85px;
+    --h3: 140px; 
+    --h4: 165px; 
+}
+
+/* Mobile devices (width <= 480px) */
+@media screen and (max-width: 480px) {
+    .clock {
+        width: 250px;
+        height: 250px;
+    }
+
+    .clock span b {
+        font-size: 10px;
+    }
+
+    .clock::before {
+        width: 3px;
+        height: 3px;
+    }
+
+    .hand i {
+        width: 1.5px;
+        height: var(--h2);
+    }
+
+}
+
+/* Tablets (width: 481px to 768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .clock {
+        width: 350px;
+        height: 350px;
+    }
+
+    .clock span b {
+        font-size: 14px;
+    }
+
+    .clock::before {
+        width: 4px;
+        height: 4px;
+    }
+
+    .hand i {
+        width: 1.8px;
+        height: var(--h3);
+    }
+
+
+}
+
+/* Small laptops (width: 769px to 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .clock {
+        width: 420px;
+        height: 420px;
+    }
+
+    .clock span b {
+        font-size: 18px;
+    }
+
+    .clock::before {
+        width: 5px;
+        height: 5px;
+    }
+
+    .hand i {
+        width: 2px;
+        height: var(--h4);
+    }
+
+
+}
